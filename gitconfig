@@ -1,0 +1,42 @@
+[user]
+	name = Heman Muresan
+	email = hmuresan@ciena.com
+[alias]
+	last = log -1 --start
+	cp = cherry-pick
+	co = checkout
+	cl = clone
+	ci = commit
+	st = status -sb
+	br = branch
+	unstage = reset HEAD --
+	dc = diff --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+	pl = pull --ff-only
+	dw = diff -W
+	dm = diff --minimal
+	logl = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --branches --not --remotes
+    dt = ! git difftool --dir-diff
+	tg = ! git tag | grep 01-06-
+[core]
+	editor = vi 
+	excludesfile = /home/hmuresan/.gitignore_global
+[push]
+	default = simple
+[diff]
+	tool  = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+	tool = meld
+	; conflictStyle = diff3
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+;    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[pull]
+	ff = only

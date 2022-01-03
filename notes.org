@@ -1,0 +1,23 @@
+* Bash
+** Special Characters for PS1
+https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt
+
+* GNU Global
+** External gtags location
+https://emacs.stackexchange.com/questions/13254/find-external-definition-with-gtags-or-ggtags
+* Firefox
+** Grant clipboard access to sites
+http://kb.mozillazine.org/Granting_JavaScript_access_to_the_clipboard
+** user.js
+https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/A_brief_guide_to_Mozilla_preferences
+
+** Javascript
+*** Clipboard
+https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
+
+*** Permissions
+https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions
+https://developer.mozilla.org/en-US/docs/Web/API/Permissions/query
+* Emacs
+** Commands
+c-display-defun-name

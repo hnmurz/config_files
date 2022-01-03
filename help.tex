@@ -1,0 +1,299 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{tabularx}
+\usepackage{hyperref}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{listings}
+
+\lstset{
+  numbers=left,
+  numberstyle=\small,
+  numbersep=8pt,
+  language=Lisp,
+  stringstyle=\ttfamily\small,
+  basicstyle=\ttfamily\footnotesize,
+  showstringspaces=false,
+  frame= single,
+  framexleftmargin= 15pt,
+  breaklines
+}
+
+
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+} 
+
+% set the depth of table of contents
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% column types (sets ragged alignment and removes justified spacing)
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% use this to write code in text
+\def\code#1{\texttt{#1}}
+
+\title{sp00ky's Help document}
+\author{sp00kyb00g13}
+ 
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\section{GNU/Linux}
+\subsection{Documentation}
+\begin{tabular} {|L{0.2\textwidth}|L{0.8\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} \\\hline\hline
+  man hier & Information on filesystem \\\hline
+
+\end{tabular}
+
+\subsection{Command Line}
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  detex & strips tex commands from file & detex <filename> \\\hline
+  diction & Prints misused words & detex <filename> | diction -bs \\\hline
+  type & prints info about a command & type cd \\\hline
+
+\end{tabular}
+
+\section{Emacs}
+General tips on emacs, probably will contain a lot of forum posts.
+\subsection{Commands or How to use them}
+\subsubsection{Elisp Navigation}
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  find-function & Finds elisp fn tag & interactive \\\hline
+\end{tabular}
+
+\subsubsection{Align-regexp}
+This \href{https://emacs.stackexchange.com/questions/2644/understanding-of-emacs-align-regexp}{post} gives a good explanation of using \code{align-regexp}
+
+\subsection{AUCTeX}
+% enter stuff about aspell-en on arch for flyspell
+\code{C-c RET} - TeX-insert-macro to insert macros (/href etc)
+\code{C-c C-e} - LaTeX-environment insert stuff
+
+\subsection{Emacs Startup Time}
+Read the comments in \href{https://github.com/abo-abo/profile-dotemacs/blob/master/profile-dotemacs.el}{this} file to see how to evaluate startup time. \\
+\subsubsection{Daemon}
+Emacs can be started as a daemon to boost its startup time. Lots of info can be found \href{https://www.emacswiki.org/emacs/EmacsAsDaemon#toc12}{here}.
+\begin{lstlisting}{caption= Example Emacs Daemon Usage}
+emacs --daemon
+emacsclient -nw
+\end{lstlisting}
+To kill the daemon simply use \code{M-x kill-emacs}. \\
+To run multiple emacs client observe the following.
+\begin{lstlisting}
+emacs --daemon=<my-server-name> 
+emacsclient -nw -s <my-server-name>
+\end{lstlisting}
+
+\subsection{Color-Themes}
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  what-cursor-position & With a prefix arg (\code{C-u}) it will describe the face at the cursor & \code{C-u M-x what-cursor-position} \\\hline
+\end{tabular}
+
+\section{ELisp Help}
+Most of the information here is taken from \href{https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html}{The Emacs manual}
+\subsection{Useful Functions}
+
+\subsubsection{Misc}
+Functions that are usefull but don't deserve their own subsubsection. \\
+
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  %{|p{0.2\textwidth}|p{0.4\textwidth}|p{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  \href{https://www.gnu.org/software/emacs/manual/html_node/eintr/fwd_002dpara-let.html#fwd_002dpara-let}{let*} & like \code{let} but emacs set each variable in sequence, variables at the end can make use of variables at the start & n/a \\\hline
+\end{tabular}
+
+\subsubsection{Minibuffer}
+
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  %{|p{0.2\textwidth}|p{0.4\textwidth}|p{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  read-from-minibuffer & Prompts for info in the minibuffer & \code{read-from-minibuffer 'Enter Your Name'} \\\hline
+\end{tabular}
+
+\subsubsection{Buffers}
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  %{|p{0.2\textwidth}|p{0.4\textwidth}|p{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  buffer-name & Gets current buffer name & n/a  \\\hline
+  other-buffer & Gets previous buffer name & n/a  \\\hline
+  switch-to-buffer & Changes emacs focused buffer (the display buffer) & \code{(switch-to-buffer (other-buffer))} \\\hline
+  set-buffer & Changes the attention of the program to a different buffer (doesnt change the displayed buffer) & \code{(set-buffer (other-buffer))} \\\hline
+  beggining-of-buffer & goto beginning of buffer and leave mark on previous position & n/a \\\hline
+  save-excursion & performs body then returns to point & i\code{save-excursion (let *...)} \\\hline
+\end{tabular}
+
+\subsubsection{Windows}
+Neotree uses something called a dedicated buffer
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  %{|p{0.2\textwidth}|p{0.4\textwidth}|p{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  split-window & use \code{C-h f} & \code{split-window nil 10 'right} \\\hline
+\end{tabular}
+
+\subsubsection{Lists}
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  \href{https://www.gnu.org/software/emacs/manual/html_node/eintr/car-cdr-_0026-cons.html}{cdr} & Manipulate list & n/a \\\hline
+  \href{https://www.gnu.org/software/emacs/manual/html_node/elisp/Mapping-Functions.html}{mapcar} & Apply function to sequence, i.e apply function to every element in sequence & \code{(mapcar '1+ [1 2 3])} \\\hline
+\end{tabular}
+
+\subsubsection{Markers}
+\label{sssec:markers}
+Mark is a position in the buffer.
+
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  \hline
+  mark-whole-buffer & n/a & n/a \\\hline
+  save-excursion & performs body then returns to point & i\code{save-excursion (let *...)} \\\hline
+  \hline
+\end{tabular}
+
+\subsubsection{Points}
+Point is where the cursor is. Part of the buffer between point and a \hyperref[sssec:markers]{mark} is called \code{region}
+
+\begin{tabular} {|L{0.2\textwidth}|L{0.4\textwidth}|L{0.4\textwidth}|}
+  \hline
+  \textbf{Function Name} &
+  \textbf{Description} &
+  \textbf{Example} \\\hline\hline
+  \hline
+  save-excursion & Saves the location of point, executes the body of the function and restores point (also restores the buffer). &
+  \code{(save-excursion
+    body...)}
+  or 
+ \code{(let varlist
+  (save-excursion
+           body...))}\\
+  \hline
+\end{tabular}
+
+
+\subsection{Writing Elisp}
+\subsubsection{Functions}
+Here are 5 important points when writing a function:
+
+\begin{enumerate}
+\item The name of the symbol to which the function definition should be attached.
+\item A list of the arguments that will be passed to the function. If no arguments will be passed to the function, this is an empty list, (). 
+\item Documentation describing the function. (Technically optional, but strongly recommended.)
+\item Optionally, an expression to make the function interactive so you can use it by typing M-x and then the name of the function; or by typing an appropriate key or keychord.
+\item The code that instructs the computer what to do: the body of the function definition.
+\end{enumerate}
+
+\begin{lstlisting}[caption=Function skeleton]
+  function-name (arguments...)
+  ``optional-documentation...''
+  (interactive argument-passing-info)     ; optional
+  body...)
+\end{lstlisting}
+
+\subsubsection{Example}
+The following is an example of a function and its usage, to use it evaluate the function using \code{C-x C-e} then evaluate the following expression:
+
+\begin{lstlisting}[caption= Multiply by seven example]
+  (defun multiply-by-seven (num) ; interactive
+  "Multiply numbers  by 7"
+  (interactive "p")
+  (message "The result is \%d" (* 7 num)))
+
+  (multiply-by-seven 3)
+\end{lstlisting}
+
+The following is an example of an interactive function, to use it do \code{C-u <number> M-x multiply-by-seven} after you have evaluated the function using \code{C-x C-e}
+\begin{lstlisting}[caption= Interactive multiply by seven example]
+  (defun multiply-by-seven (number)       ; Interactive version.
+  ``Multiply NUMBER by seven.''
+  (interactive ``p'')
+         (message ``The result is %d'' (* 7 number)))
+\end{lstlisting}
+
+\subsubsection{Scope of Variables}
+Using \code{let} let sets the scope of the variable to that let scope (inside \code{let}'s brackets). Here is an example of how to use let:
+
+\begin{lstlisting}[caption= Let general usage]
+  (let ((variable value)
+  (variable value)
+  ...)
+         body...)))
+\end{lstlisting}
+
+\subsubsection{If}
+Everything except nil is true. If statement works as expected, heres an example:
+
+\begin{lstlisting}[caption= If statement example with int]
+  (if (> 5 4)                                  ; if-part
+           (message ``5 is greater than 4!'')) ; then-part
+\end{lstlisting}
+
+Here is an example using a string:
+
+\begin{lstlisting}[caption= If statement example with string]
+  (defun type-of-animal (characteristic)
+  ``Print message in echo area depending on CHARACTERISTIC.
+  If the CHARACTERISTIC is the string \"fierce\",
+  then warn of a tiger.''
+  (if (equal characteristic ``fierce'')
+             (message ``It is a tiger!'')))
+\end{lstlisting}
+
+Here is an example of an if-else:
+
+\begin{lstlisting}[caption= If-else statement with int]
+  (if (> 4 5)                                    ; if-part
+  (message ``4 falsely greater than 5!'')        ; then-part
+         (message ``4 is not greater than 5!'')) ; else-part
+\end{lstlisting}
+
+\subsubsection{Nil}
+Nil has two meanings, false and empty list, referred to as \code{nil} or \code{()}. These mean the same thing.
+
+\end{document}
