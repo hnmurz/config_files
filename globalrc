@@ -35,7 +35,8 @@
 # Please refer to gtags.conf(5) for details.
 #
 default:\
-	:tc=user:
+	:tc=user:tc=pygments:
+	# :tc=user:
 	# :tc=native:
 	# :tc=pygments:
 native:\
@@ -70,8 +71,10 @@ user-custom|User custom plugin parser:\
 	:tc=common:\
 	:tc=builtin-parser:\
 	:langmap=Python\:.py.pyw.sc.tac.sage:\
+	:langmap=Bash\:.sh.ksh.bash.ebuild.eclass:\
     :langmap=Common-Lisp\:.cl.lisp.el:\
 	:gtags_parser=Python\:$pygmentslib:\
+	:gtags_parser=Bash\:$pygmentslib:\
 	:gtags_parser=Common-Lisp\:$pygmentslib:
 #
 # Plug-in parser to use Exuberant Ctags.
