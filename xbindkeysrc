@@ -1,0 +1,48 @@
+# For the benefit of emacs users: -*- shell-script -*-
+# TODO
+# Implement alt-tab functionality with F2
+
+# For useful info we can look at the default conf file with xbindkeys -d
+
+#keystate_numlock = enable
+keystate_capslock = enable
+#keystate_scrolllock= enable
+
+"~/codeSnippetsAndScripts/xdotool/focusWindow.sh emacs@sp00ky"
+Release+Caps_Lock
+
+"~/codeSnippetsAndScripts/xdotool/focusWindow.sh sp00kyTerminal"
+Release+F1
+
+# "~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 0"
+# Release+F2
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 0"
+Release+F3
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 1"
+Release+F4
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 2"
+Release+F5
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 3"
+Release+F6
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 4"
+Release+F7
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 5"
+Release+F8
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 6"
+Release+F9
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 7"
+Release+F10
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 8"
+Release+F11
+
+"~/codeSnippetsAndScripts/xdotool/tmuxEmacsWindowSwitch.sh 9"
+Release+F12
